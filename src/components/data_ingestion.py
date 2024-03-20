@@ -21,7 +21,7 @@ class DataIngestion:
         try:
             print("\n====================== Fetching Data ==============================\n")
             data_path = os.path.join(from_root(), self.config.RAW, self.config.PREFIX)
-            os.system(f"aws s3 sync s3://image-database-system-01/images/ {data_path} --no-progress")
+            os.system(f"aws s3 sync s3://reverse-image-datacollection/images/ {data_path} --no-progress")
             print("\n====================== Fetching Completed ==========================\n")
 
         except Exception as e:
