@@ -6,7 +6,8 @@ class DatabaseConfig:
     def __init__(self):
         self.USERNAME: str = os.environ["DATABASE_USERNAME"]
         self.PASSWORD: str = os.environ["DATABASE_PASSWORD"]
-        self.URL: str = "mongodb+srv://<username>:<password>@projects.ch4mixt.mongodb.net/?retryWrites=true&w=majority"
+        # self.URL: str = "mongodb+srv://<username>:<password>@projects.ch4mixt.mongodb.net/?retryWrites=true&w=majority"
+        self.URL: str = "mongodb+srv://<username>:<password>@cluster0.gve0rmu.mongodb.net/?retryWrites=true&w=majority"
         self.DBNAME: str = "ReverseImageSearchEngine"
         self.COLLECTION: str = "Embeddings"
 
@@ -19,7 +20,7 @@ class DataIngestionConfig:
         self.PREFIX: str = "images/"
         self.RAW: str = "data/raw"
         self.SPLIT: str = "data/splitted"
-        self.BUCKET: str = "image-database-system-01"
+        self.BUCKET: str = "reverse-image-datacollection"
         self.SEED: int = 1337
         self.RATIO: tuple = (0.8, 0.1, 0.1)
 
@@ -66,7 +67,7 @@ class ImageFolderConfig:
         self.ROOT_DIR = os.path.join(from_root(), "data", "raw", "images")
         self.IMAGE_SIZE = 256
         self.LABEL_MAP = {}
-        self.BUCKET: str = "image-database-system-01"
+        self.BUCKET: str = "reverse-image-datacollection"
         self.S3_LINK = "https://{0}.s3.ap-south-1.amazonaws.com/images/{1}/{2}"
 
     def get_image_folder_config(self):
@@ -94,7 +95,7 @@ class s3Config:
         self.ACCESS_KEY_ID = os.environ["ACCESS_KEY_ID"]
         self.SECRET_KEY = os.environ["AWS_SECRET_KEY"]
         self.REGION_NAME = "ap-south-1"
-        self.BUCKET_NAME = "image-database-system-01"
+        self.BUCKET_NAME = "reverse-image-datacollection"
         self.KEY = "model"
         self.ZIP_NAME = "artifacts.tar.gz"
         self.ZIP_PATHS = [(os.path.join(from_root(), "data", "embeddings", "embeddings.json"), "embeddings.json"),
