@@ -39,7 +39,7 @@ class DataPreprocessing:
             for _ in tqdm(range(1)):
                 train_data = ImageFolder(root=self.config.TRAIN_DATA_PATH, transform=TRANSFORM_IMG)
                 test_data = ImageFolder(root=self.config.TEST_DATA_PATH, transform=TRANSFORM_IMG)
-                valid_data = ImageFolder(root=self.config.VALID_DATA_PATH, transform=TRANSFORM_IMG)
+                valid_data = ImageFolder(root=self.config.TEST_DATA_PATH, transform=TRANSFORM_IMG)
 
                 train_data_loader = DataLoader(train_data, batch_size=self.config.BATCH_SIZE,
                                                shuffle=True, num_workers=1)
